@@ -1,0 +1,42 @@
+
+    <div id="logreg-forms">
+        <form [formGroup]= 'login' (ngSubmit)='onSubmit()'  class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+            </div>
+            <p style="text-align:center"> OR  </p>
+            <div class="input-group">
+              <input type="email"  class="form-control" placeholder="Email address"  formControlName='email' autofocus=""><br>
+              <span *ngIf="login.controls.email.errors?.required && submitted " class="sp">**Please enter
+                email id.</span>
+            <span *ngIf="login.controls.email.errors?.pattern" class="sp">**enter valid email id</span>
+            </div>
+
+            <div class="input-group">
+              <input type="password"  class="form-control" placeholder="Password" formControlName='password' autofocus=""><br>
+              <span *ngIf="login.controls.password.errors?.required && submitted " class="sp">**Please
+                enter your password.</span>
+            <span *ngIf="login.controls.password.errors?.pattern" class="sp">**please enter atleast one
+                upper one lower and one special character</span>
+      
+            </div>
+
+            <div class="input-group">
+              <button class="btn btn-md btn-rounded btn-block form-control submit" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+            </div>
+
+            <a href="#" id="forgot_pswd">Forgot password?</a>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+            <!-- <button class="btn btn-primary btn-block" type="button" id="btn-signup" routerLink='/signup'><i class="fas fa-user-plus"></i> Sign up New Account</button> -->
+            </form>
+
+            <!-- <form action="#" class="form-reset">
+                <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+                
+            </form> -->
+            
+    </div>

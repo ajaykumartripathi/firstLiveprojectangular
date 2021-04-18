@@ -1,0 +1,94 @@
+.container{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    align-items: center;
+}
+body{
+    background-color:rgb(231, 227, 227)
+}
+
+.refrech{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    align-items: center;
+    background-color: white!important;
+    margin-bottom: 50px;
+   
+
+}
+.pencil{
+    margin-left: -25px;
+    border: none;
+    background-color:rgb(231, 227, 227);
+}
+
+.icon{
+    /* background-color: rgb(241, 222, 222); */
+    border-radius: 5px;
+    
+}
+
+.like{
+    margin-left: 5px;
+    
+}
+.comment{
+    margin-left: 20px;
+    
+}
+.share{
+    margin-left: 25px;
+}
+.bookmark{
+    margin-left: 180px;
+}
+
+
+.img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.img2{
+     /* border-radius: 10%;  */
+    height: 300px;
+    width: 400px;
+}
+.col1{
+    margin-top: 80px;
+    margin-right: 35px;
+}
+.col2{
+    margin-top: 60px!important;
+}
+.tbl{
+    background-color:rgb(238, 204, 204);
+    margin-top: 20px;
+}
+.form-control{
+    width: 200px;
+}
+.btn1{
+    margin-left: 5px;
+}
+.form{
+    padding-left: 100px;
+}
+.icons{
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    margin-top: 10px;
+}
+.caption{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.imgcl{
+    margin-top: 5px;
+}

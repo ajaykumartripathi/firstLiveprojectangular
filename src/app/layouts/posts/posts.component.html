@@ -1,0 +1,92 @@
+
+
+
+    <!-- <div class="refrech">
+    <button type="button" class="btn btn-primary" (click)='onSubmit()'>shows post</button>
+  </div>
+
+  <div class="container">
+   
+    
+   
+
+
+
+</div> -->
+<app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
+<div class="container">
+    <!-- <app-side-bar></app-side-bar> -->
+<div class="row">
+<div class="col-md-4 col1">
+    <form class="form" [formGroup]='post' (ngSubmit)='onPost()'>
+        <div class="form-group">
+          <input type="number" class="form-control"  placeholder="user_id" formControlName='user_id'  >
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control"  placeholder="caption" formControlName='caption' >
+        </div>
+        <div class="form-group">
+          <input type="file"  formControlName='image' (change) ='onFileUpload($event)' >
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="button" class="btn btn-primary btn1"  (click)='onSubmit()'>shows post</button>
+      </form>
+</div>
+<div class="col-md-4 col2">
+    <div>
+        <table class="tbl">
+            <tbody *ngFor='let data of dbdata'>
+                <tr >
+                    <td><img src="http://localhost:9000/uploads/{{data.profile_pic}}" class="img">   {{data.first_name}}  {{data.last_name}}</td>
+                   <!-- <button type="submit"><i class="fa fa-edit"></i></button> -->
+                    <!-- <button type="submit" ></button><i class="fa fa-edit"> -->
+                </tr>
+                <br>
+                    <!-- <tr>{{data.caption}} <button type="submit" (click)='onEditCaption(data.id,data.caption)' data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i></button> -->
+                        <tr>{{data.caption}}<td><button type="button" class="pencil" data-toggle="modal" data-target="#exampleModal" (click)="onEditCaption(data,data.id)"><i class="fa fa-pencil" ></i></button></td></tr>
+                        
+                
+                <div class="imgcl">
+                    <tr><img src="http://localhost:9000/uploads/{{data.image}}" class="img2"></tr>
+                </div>
+                <tr>
+                    <div class="icons">
+                        <div><i class="fa fa-thumbs-o-up">likes</i></div>
+                        <div><i class="fa fa-comment">Comment</i></div>
+                        <div><i class="fa fa-share-alt">Share</i></div>
+                        <div><button type="submit" (click)='onDelete(data.id)'> <i class="fa fa-trash"></i></button></div>
+                    </div>
+                    <hr>
+                </tr>
+            </tbody>
+        </table>
+ </div>
+
+</div>
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update caption</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control" name="caption" [(ngModel)]='caption' placeholder="Edit Caption">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="onCopy()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+

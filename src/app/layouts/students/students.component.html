@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="tbl"> 
+        <button class="ibox-title btn btn-primary add-button" routerLink='/add-edit' [queryParams]="{showpassword:true,title:'Add User'}">Add Student</button>             
+        <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>profile_pic</th>
+                        <th>First Name</th>						
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Created_At</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let data of dbdata;'>
+            <td>{{data.id}}</td> 
+            <td><img src="http://localhost:9000/uploads/{{data.profile_pic}}" alt="" class="img" onerror="this.src='../../../assets/defaultphoto.png'"></td>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone_number}}</td>
+            <td>{{data.created_at | date}}</td>
+            <td><a type="submit"  (click)="ondelete(data.id)"><i class="fa fa-trash"></i></a></td>
+            <td><a   routerLink="/add-edit" [queryParams]="{id:data.id,title:'Update User'}"><i class="fa fa-edit" ></i></a></td>
+            <hr>
+          </tr> 
+                </tbody>
+            </table>
+        </div>      
+    </div>

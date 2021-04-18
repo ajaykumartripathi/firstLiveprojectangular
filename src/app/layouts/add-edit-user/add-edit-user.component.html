@@ -1,0 +1,69 @@
+
+
+    <div id="logreg-forms">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">{{usertype}}</h1>
+            <form  [formGroup] ='signup' (ngSubmit)='onSubmit()' class="form-signin">
+                <div class="input-group">
+                    <input type="text" id="user-name" class="form-control" placeholder="first name" formControlName='firstname'>
+                </div>
+
+                <span *ngIf="signup.controls.firstname.errors?.required && submitted " class="sp">**Please
+                    enter first name.</span>
+                    <span *ngIf="signup.controls.firstname.errors?.maxlength" class="sp">**name should be
+                        maximum 10 character.</span>   
+                <span *ngIf="signup.controls.firstname.errors?.pattern" class="sp">**name should be only
+                    character.</span>
+                <span *ngIf="signup.controls.firstname.errors?.minlength" class="sp">**name should be
+                    minimum 3 character.</span>
+
+                <div class="input-group">
+                    <input type="text" id="user-name" class="form-control" placeholder="last name" formControlName='lastname'>
+                </div>
+                <span *ngIf="signup.controls.lastname.errors?.required && submitted " class="sp">**Please
+                    enter last name.</span>
+                <span *ngIf="signup.controls.lastname.errors?.minlength" class="sp">**name should be minimum
+                    3 character.</span>
+                <span *ngIf="signup.controls.lastname.errors?.maxlength" class="sp">**name should be maximum
+                    10 character.</span>
+                <span *ngIf="signup.controls.lastname.errors?.pattern" class="sp">**lastname should be only
+                    character.</span>
+
+                <div class="input-group">
+                    <input type="email" id="user-name" class="form-control" placeholder="email" formControlName='email'>
+                </div>
+                <span *ngIf="signup.controls.email.errors?.required && submitted " class="sp">**Please enter
+                    email id.</span>
+                <span *ngIf="signup.controls.email.errors?.pattern" class="sp">**enter valid email id</span>
+                
+                <div class="input-group">
+                    <input type="number" id="user-name" class="form-control" placeholder="phone_number" formControlName='phone'>
+                </div>
+                <span *ngIf="signup.controls.phone.errors?.required && submitted " class="sp">**Please
+                    enter your number.</span>
+
+                <div class="input-group" *ngIf='showpassword'>
+                    <input type="password" id="user-name" class="form-control" placeholder="password" (focus)="submitted = false" formControlName='password' >
+                </div>
+                <div *ngIf='showconfirmpassword'>
+                    <span *ngIf="signup.controls.password?.errors?.required && submitted " class="sp">**Please
+                        enter your password.</span>
+                        <span *ngIf="signup.controls.password.errors?.pattern" class="sp">**please enter atleast one
+                            upper one lower and one special character</span>
+                </div>
+                
+                <div class="input-group" *ngIf='showconfirmpassword'>
+                    <input type="password" id="user-name" class="form-control" placeholder="confirm_password" formControlName='confirmPassword' >
+                </div>
+                <div *ngIf='showconfirmpassword'>
+                    <span *ngIf="signup.controls.confirmPassword?.errors?.required && submitted "
+                    class="sp">**Please enter confirm password.</span>
+                <span *ngIf="signup.controls.confirmPassword?.errors?.confirmedValidator"
+                    class="sp">**password and confirm password not match</span>
+                </div>
+                
+<div >
+  <button class="btn btn-md btn-block submit" type="submit"><i class="fas fa-user-plus"></i> {{usertype}}</button>
+</div>
+
+            </form>
+    </div>
